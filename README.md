@@ -18,7 +18,7 @@ publication-grade figures.
 ## Headline findings
 
 1. **The curve is still steepening.** Annual AI/ML postings grew 137 (2019) → 712 (2024); 2026 logged 933 by Sep 15 — already 15% above all of 2025.
-2. **AI is validated like an instrument, not developed like a drug.** 55.6% observational; only **67** of 1,886 interventional studies carry formal phase designations (<2%).
+2. **AI is validated like an instrument, not developed like a drug.** 55.6% observational; only **80** of 1,886 interventional studies carry any formal phase designation (1.9%).
 3. **Academic medicine runs the field.** 85% non-industry sponsors; industry leads just 10.6%.
 4. **China ≈ US parity.** Sites in China: 807 studies · US: 783 · next tier (Italy 240) not close.
 5. **Oncology + cardiology are the beachheads.** Breast cancer (87), heart failure (77), CAD (51) top the conditions list.
@@ -72,7 +72,7 @@ One row per study. 4,250 unique `nctId`s, no duplicates.
 | 5 | `firstPosted` | ISO date | First posting date on the registry (basis for yearly trend) | `2026-02-19` |
 | 6 | `completionDate` | ISO date (month or day precision) | Primary completion date; empty if ongoing/not reported | `2021-09-10`, `2026-12` |
 | 7 | `studyType` | enum | Registry design class | `OBSERVATIONAL` (2,363) · `INTERVENTIONAL` (1,886) · `EXPANDED_ACCESS` (1) |
-| 8 | `phases` | enum | Formal phase designation; blank for observational, `NA` for unphased interventional | `PHASE2`, `PHASE3`, `EARLY_PHASE1`; only 67 interventional studies phased |
+| 8 | `phases` | enum | Formal phase designation; blank for observational, `NA` for unphased interventional | `PHASE2`, `PHASE3`, `EARLY_PHASE1`; only 80 interventional studies phased |
 | 9 | `enrollment` | integer | Target/actual enrollment; blank if not reported (2 studies) | `1941` |
 | 10 | `leadSponsor` | string | Lead sponsor organization name | `Mayo Clinic` |
 | 11 | `sponsorClass` | enum | Registry sponsor class | `OTHER` (academic/non-profit) · `INDUSTRY` · `NIH` · `FED` · `OTHER_GOV` · `NETWORK` |
@@ -80,7 +80,7 @@ One row per study. 4,250 unique `nctId`s, no duplicates.
 | 13 | `nLocations` | integer | Number of registered study sites | `1` |
 | 14 | `countries` | string | Site countries, `\|`-separated (study-level: multi-site studies count per country in country aggregates) | `Italy` · `United States \| China` |
 
-**`data/stats.json` keys:** `meta` (source, query, snapshot timestamp, counts) · `posting_by_year` · `status_distribution` · `study_type_distribution` · `phase_distribution` · `sponsor_class_distribution` · `top15_sponsors` · `top15_conditions` · `top12_countries` · `enrollment` (median 250 / mean 30,274 / p90 4,882) · `interventional_share_pct`.
+**`data/stats.json` keys:** `meta` (source, query, snapshot timestamp, counts) · `posting_by_year` · `status_distribution` · `study_type_distribution` · `phase_distribution` · `sponsor_class_distribution` · `top15_sponsors` · `top15_conditions` · `top12_countries` · `enrollment` (median 250 / mean 30,274 / p90 4,882) · `interventional_share_pct` · `ai_as_intervention` (443 studies / 10.4% naming AI/ML as the intervention, with derivation).
 
 ## Methodology (short form)
 

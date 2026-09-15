@@ -11,15 +11,15 @@ Artificial intelligence has moved from curiosity to standard infrastructure in c
 
 **Five findings that matter:**
 
-1. **The curve is still steepening.** Annual AI/ML trial postings grew from 137 (2019) to 712 (2024) — and 2026 has already logged **933 postings with 3.5 months remaining**, 15% above all of 2025 (811). Six-year growth: 246 → 933 (3.8×).
+1. **The curve is still steepening.** Annual AI/ML trial postings grew from 137 (2019) to 712 (2024) — and 2026 has already logged **933 postings with 3.5 months remaining**, 15% above all of 2025 (811). Seven posting-years from the 2019 baseline (the table's first year): 137 → 933, a 6.8× increase.
 
-2. **AI tools are mostly studied *observationally*.** 55.6% of AI/ML-flagged studies are observational; only 44.4% are interventional. Strikingly, just **67 interventional studies carry formal phase designations** (1/2/3/4) — under 2% of the cohort. AI is being validated like a diagnostic instrument, not developed like a drug.
+2. **AI tools are mostly studied *observationally*.** 55.6% of AI/ML-flagged studies are observational; only 44.4% are interventional. Strikingly, just **80 interventional studies carry any formal phase designation** (single, combination, or early Phase 1) — 1.9% of the cohort. AI is being validated like a diagnostic instrument, not developed like a drug.
 
 3. **Academic medicine, not pharma, is running the field.** 85% of studies are led by non-industry sponsors. The top AI-trial producers are academic hospitals — National Taiwan University Hospital (43), Mayo Clinic (41), Cairo University (38), Sun Yat-sen University (38). Industry leads only 450 studies (10.6%).
 
 4. **China has pulled even with the United States.** Studies with sites in China: 807. United States: 783. The next tier (Italy 240, Türkiye 232, France 203) is not close. Any market map of clinical AI that centers only on FDA-land is missing half the field.
 
-5. **Oncology and cardiology are the beachheads.** Leading studied conditions: breast cancer (87), heart failure (77), coronary artery disease (51), lung cancer (45), prostate cancer (44). A distinct sub-field — **373 studies (8.8%)** — evaluates AI/ML itself as the intervention under test, the clearest signal of an emerging "AI as medical product" pipeline.
+5. **Oncology and cardiology are the beachheads.** Leading studied conditions: breast cancer (87), heart failure (77), coronary artery disease (51), lung cancer (45), prostate cancer (44). A distinct sub-field — **443 studies (10.4%)** — names AI/ML itself as the intervention under test (reproducible via an `AREA[InterventionName]` count on the same query; see `analysis/stats.json`), the clearest signal of an emerging "AI as medical product" pipeline.
 
 **Implication for buyers:** the commercial opportunity in clinical AI is shifting from algorithm development to *validation infrastructure* — trial design, endpoint standardization, and regulatory-grade evidence generation for tools that are currently being validated ad hoc, without phased pathways.
 
@@ -31,12 +31,13 @@ Artificial intelligence has moved from curiosity to standard infrastructure in c
 
 **Query.** `query.intr = "artificial intelligence" OR "machine learning"` — full-text match on intervention descriptions. All 4,250 matching records retrieved via paginated field-pruned requests (500/page, 9 pages) on 2026-09-15.
 
-**Pipeline.** Deterministic, zero-dependency Python (`analysis/fetch_build.py`, stdlib only). Raw records archived as JSONL; flattened CSV (15 fields per study); statistics serialized to `analysis/stats.json`.
+**Pipeline.** Deterministic, zero-dependency Python (`analysis/fetch_build.py`, stdlib only). Raw records archived as JSONL; flattened CSV (14 data columns per study; the raw JSONL archive is field-pruned to the protocol fields used here); statistics serialized to `analysis/stats.json`.
 
 **Verification.** Every headline statistic was recomputed from the flattened CSV through an independent code path and cross-checked against `stats.json` (9/9 checks passed; 4,250 unique NCT IDs, no duplicates).
 
 **Caveats (disclosed, quantified where possible).**
-- The intervention-text query is a *lower bound*: trials using AI without naming it (e.g., "automated segmentation," "algorithm-guided") are not captured. Growth trends are conservative.
+- The intervention-text query is a *lower bound* on true adoption: trials using AI without naming it (e.g., "automated segmentation," "algorithm-guided") are not captured. Conversely, incidental AI mentions in intervention descriptions can inflate counts, so neither the level nor the slope has a fixed sign — both are sensitive to vocabulary coverage.
+- Enrollment is reported for 4,248 of 4,250 studies (2 missing); enrollment statistics exclude those 2.
 - `posting_by_year` uses study first-posting date; retrospective re-registrations appear in their posting year.
 - 2026 figures cover 1 Jan–15 Sep (partial year).
 - Country counts are study-level (a study with sites in 5 countries counts 5 times).
@@ -55,7 +56,7 @@ Artificial intelligence has moved from curiosity to standard infrastructure in c
 | 2021 | 353 | | 2025 | 811 |
 | 2022 | 428 | | **2026 (to Sep 15)** | **933** |
 
-Even at constant H2 velocity, 2026 will exceed 1,200 postings — a fourth consecutive record year and roughly 5× the 2019 volume. The registry-wide share is still small (0.7%), which is precisely the headroom story: AI trialization is early by volume, mature by momentum.
+Even at constant H2 velocity, 2026 will exceed 1,200 postings — a fourth consecutive record year and roughly 8.8× the 2019 volume (933 posted to date = 6.8×). The registry-wide share is still small (0.7%), which is precisely the headroom story: AI trialization is early by volume, mature by momentum.
 
 ### 3.2 Lifecycle status: a cohort that is completing its first cycle
 
@@ -75,9 +76,9 @@ A completed cohort of 1,359 studies now exists — large enough for systematic e
 
 Study types: OBSERVATIONAL 2,363 · INTERVENTIONAL 1,886 · EXPANDED_ACCESS 1.
 
-Of the 1,886 interventional studies, **only 67 have formal phase designations** (Ph1 7, Ph1/2 6, Ph2 31, Ph2/3 1, Ph3 9, Ph4 20; 6 early Ph1). The remaining ~1,800 interventional studies are registered "NA" — device-style or feasibility-style evaluations without the phased evidence ladder that drugs follow.
+Of the 1,886 interventional studies, **80 carry any formal phase designation** (Ph1 7, Ph1/2 6, Ph2 31, Ph2/3 1, Ph3 9, Ph4 20, ePh1 6 — counting any phase designation, including combinations and early Phase 1). The remaining 1,806 interventional studies (95.8%) are registered "NA" — device-style or feasibility-style evaluations without the phased evidence ladder that drugs follow. For scale: registry-wide, 51.4% of the 460,125 interventional studies are non-phased (236,639) — within the AI cohort it is 95.8%, nearly double the registry baseline.
 
-This is the report's central structural finding: **clinical AI currently lacks a regulatory evidence pathway of its own and is borrowing inadequate frameworks from two sides** — drug-style phases (rare, 67 studies) and observational validation (dominant, 55.6%). Vendors and regulators are filling the vacuum ad hoc (FDA's Predetermined Change Control Plans, EU AI Act high-risk classification). Whoever standardizes "AI trial methodology" owns a category.
+This is the report's central structural finding: **clinical AI currently lacks a regulatory evidence pathway of its own and is borrowing inadequate frameworks from two sides** — drug-style phases (rare, 80 studies) and observational validation (dominant, 55.6%). Vendors and regulators are filling the vacuum ad hoc (FDA's Predetermined Change Control Plans, EU AI Act high-risk classification). Whoever standardizes "AI trial methodology" owns a category.
 
 ### 3.4 Geography: a two-superpower system
 
@@ -94,7 +95,7 @@ China's hospital-network scale (dozens of academic systems at 20–43 studies ea
 
 ### 3.5 Sponsors: academia builds, industry waits
 
-Sponsor classes: OTHER (academic/non-profit) 3,625 · INDUSTRY 450 · government 161. Top producers are academic medical centers. Industry's 10.6% lead-sponsor share says pharma is still in *watch-and-license* mode — the M&A and partnership wave typically follows validation-phase maturation, and 67 phased studies say that wave has not started.
+Sponsor classes: OTHER (academic/non-profit) 3,625 · INDUSTRY 450 · government 161. Top producers are academic medical centers. Industry's 10.6% lead-sponsor share says pharma is still in *watch-and-license* mode — the M&A and partnership wave typically follows validation-phase maturation, and 80 phased studies say that wave has not started.
 
 ### 3.6 Therapeutic-area heat map
 
@@ -110,10 +111,10 @@ Median enrollment: 250 participants · p90: 4,882 · mean: 30,274 (mean ≫ medi
 
 ## 4. Market Implications (for syndication buyers)
 
-1. **Validation infrastructure is the gap.** 1,886 interventional AI studies with 67 phased → methodology-as-a-service (protocol design, endpoint selection, regulatory strategy) is the highest-value adjacent market.
+1. **Validation infrastructure is the gap.** 1,886 interventional AI studies with only 80 phased → methodology-as-a-service (protocol design, endpoint selection, regulatory strategy) is a natural adjacent market.
 2. **Evidence synthesis is productizable now.** 1,359 completed trials = immediately harvestable corpus for comparative-effectiveness reports per therapeutic area. (Natural follow-on deliverable; K-Dense can produce per-vertical cuts from this same dataset.)
-3. **Two-regime go-to-market.** China/US parity means any clinical-AI commercialization plan needs dual evidence strategies; EU (France/Spain/Italy ≈ 640 studies combined) is the third bloc.
-4. **Timing signal for pharma BD.** Industry lead share at 10.6% with a 3.8× six-year growth curve is the classic pre-consolidation shape — buy-side teams should expect the licensing window to open as the completed-cohort evidence base matures.
+3. **Two-regime go-to-market.** China/US parity means any clinical-AI commercialization plan needs dual evidence strategies; EU (France/Spain/Italy = 638 studies combined) is the third bloc.
+4. **Timing signal for pharma BD.** Industry lead share at 10.6% against 6.8× growth since 2019 is, in our interpretation, a pre-consolidation shape — buy-side teams may see the licensing window open as the completed-cohort evidence base matures.
 
 ---
 
@@ -131,7 +132,7 @@ Requirements: Python 3.9+, internet access, no API keys. Runtime ≈ 30 s. The p
 | File | Description |
 |---|---|
 | `data/ai_trials_raw.jsonl` | 4,250 raw registry records (field-pruned), 5.2 MB |
-| `data/ai_trials_flat.csv` | 15-field flattened table, 4,250 rows |
+| `data/ai_trials_flat.csv` | 14-field flattened table, 4,250 rows |
 | `analysis/fetch_build.py` | Fetch + flatten + stats pipeline (stdlib only) |
 | `analysis/stats.json` | All computed statistics, machine-readable |
 | `README.md` | This report |

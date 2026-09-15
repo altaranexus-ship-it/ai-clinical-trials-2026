@@ -118,9 +118,14 @@ def main():
     by_year = collections.Counter(y for y in (year_of(r["firstPosted"]) for r in flat) if y)
     status = collections.Counter(r["overallStatus"] for r in flat if r["overallStatus"])
     stype = collections.Counter(r["studyType"] for r in flat if r["studyType"])
-    phases = collections.Counter(
-        (p if p else "N/A (observational/other)") for r in flat for p in (r["phases"].split("|") if r["phases"] else [""])
-    )
+    # Study-level phase counting: each study counted once, combination phases joined with "+"
+    # (80 of 1,886 interventional studies carry >=1 phase designation; summing this
+    #  distribution reproduces the cohort total instead of double-counting combos).
+    def phase_bucket(r):
+        if r["phases"]:
+            return "+".join(r["phases"].split("|"))
+        return "NA (non-phased interventional)" if r["studyType"] == "INTERVENTIONAL" else "N/A (observational/other)"
+    phases = collections.Counter(phase_bucket(r) for r in flat)
     spons = collections.Counter(
         (r["leadSponsor"] or "UNKNOWN").strip() for r in flat
     )
@@ -134,6 +139,15 @@ def main():
     enr_vals = [r["enrollment"] for r in flat if isinstance(r["enrollment"], int)]
     interventional = sum(1 for r in flat if r["studyType"] == "INTERVENTIONAL")
 
+    # Studies NAMING AI/ML as an intervention (vs. only mentioning it in the
+    # intervention description): one reproducible registry-side countTotal call.
+    adv_url = BASE + "?" + urllib.parse.urlencode({
+        "query.intr": QUERY,
+        "filter.advanced": 'AREA[InterventionName]("artificial intelligence" OR "machine learning")',
+        "countTotal": "true", "pageSize": "1",
+    })
+    ai_as_intervention = fetch_json(adv_url).get("totalCount")
+
     stats = {
         "meta": {
             "source": "ClinicalTrials.gov API v2 (clinicaltrials.gov)",
@@ -142,11 +156,17 @@ def main():
             "studies_matched": len(studies),
             "registry_total_studies": registry_total,
             "pipeline": "fetch_all.py (pagination via pageToken, fields-pruned)",
+            "phase_convention": "phase_distribution is study-level (each study counted once; combination phases joined with '+')",
         },
         "posting_by_year": dict(sorted(by_year.items())),
         "status_distribution": dict(status.most_common()),
         "study_type_distribution": dict(stype.most_common()),
         "phase_distribution": dict(phases.most_common()),
+        "ai_as_intervention": {
+            "n_studies": ai_as_intervention,
+            "share_pct": round(100 * ai_as_intervention / len(flat), 1) if flat else None,
+            "derivation": "cohort query + filter.advanced AREA[InterventionName](\"artificial intelligence\" OR \"machine learning\") countTotal - studies naming AI/ML as an intervention (reproducible; registry-side count)",
+        },
         "sponsor_class_distribution": dict(sclass.most_common()),
         "top15_sponsors": dict(spons.most_common(15)),
         "top15_conditions": dict(conds.most_common(15)),
@@ -159,7 +179,7 @@ def main():
         },
         "interventional_share_pct": round(100 * interventional / len(flat), 1) if flat else None,
     }
-    with open(os.path.join(HERE, "..", "data", "stats.json"), "w") as f:
+    with open(os.path.join(HERE, "..", "analysis", "stats.json"), "w") as f:
         json.dump(stats, f, indent=2, ensure_ascii=False)
 
     print(json.dumps(stats["meta"], indent=2))

@@ -7,7 +7,8 @@
     "fetched_at_utc": "2026-09-15T17:56:58Z",
     "studies_matched": 4250,
     "registry_total_studies": 602897,
-    "pipeline": "fetch_all.py (pagination via pageToken, fields-pruned)"
+    "pipeline": "fetch_all.py (pagination via pageToken, fields-pruned)",
+    "phase_convention": "phase_distribution is study-level (each study counted once; combination phases joined with '+'). 80 of 1,886 interventional studies carry >=1 phase designation."
   },
   "posting_by_year": {
     "2005": 1,
@@ -45,19 +46,17 @@
     "SUSPENDED": 6,
     "NO_LONGER_AVAILABLE": 1
   },
-  "study_type_distribution": {
-    "OBSERVATIONAL": 2363,
-    "INTERVENTIONAL": 1886,
-    "EXPANDED_ACCESS": 1
-  },
   "phase_distribution": {
-    "N/A (observational/other)": 2366,
+    "N/A (observational/other)": 2364,
     "NA": 1804,
-    "PHASE2": 38,
+    "NA (non-phased interventional)": 2,
+    "PHASE2": 31,
     "PHASE4": 20,
-    "PHASE1": 13,
-    "PHASE3": 10,
-    "EARLY_PHASE1": 6
+    "PHASE3": 9,
+    "PHASE1": 7,
+    "EARLY_PHASE1": 6,
+    "PHASE1+PHASE2": 6,
+    "PHASE2+PHASE3": 1
   },
   "sponsor_class_distribution": {
     "OTHER": 3625,
@@ -121,5 +120,15 @@
     "mean": 30274,
     "p90": 4882
   },
-  "interventional_share_pct": 44.4
+  "interventional_share_pct": 44.4,
+  "study_type_distribution": {
+    "OBSERVATIONAL": 2363,
+    "INTERVENTIONAL": 1886,
+    "EXPANDED_ACCESS": 1
+  },
+  "ai_as_intervention": {
+    "n_studies": 443,
+    "share_pct": 10.4,
+    "derivation": "countTotal of the cohort query plus filter.advanced=AREA[InterventionName](\"artificial intelligence\" OR \"machine learning\") — studies naming AI/ML as an intervention rather than only mentioning it in the intervention description"
+  }
 }
