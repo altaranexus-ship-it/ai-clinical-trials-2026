@@ -5,6 +5,7 @@
 [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](CITATION.cff)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 [![Registry](https://img.shields.io/badge/Source-ClinicalTrials.gov%20API%20v2-00695c.svg)](https://clinicaltrials.gov/)
+[![Companion](https://img.shields.io/badge/Companion-ai--drug--discovery--2026-6a1b9a.svg)](https://github.com/altaranexus-ship-it/ai-drug-discovery-2026)
 
 **K-Dense Science Lab — Market Analysis Division**
 *Data snapshot: 2026-09-15T17:56:58Z · Registry: ClinicalTrials.gov API v2 · Studies analyzed: 4,250*
