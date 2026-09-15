@@ -1,0 +1,19 @@
+CC0 1.0 Universal — Public Domain Dedication
+
+The data files in this repository (data/ai_trials_raw.jsonl,
+data/ai_trials_flat.csv, data/stats.json) are derived exclusively from
+ClinicalTrials.gov, a registry of the U.S. National Library of Medicine (NLM/NIH),
+whose content is in the public domain.
+
+To the extent possible under law, K-Dense Science Lab has waived all copyright
+and related or neighboring rights to the derived data files in data/. This work
+is published from the United States.
+
+You can copy, modify, distribute and use the data, even for commercial purposes,
+all without asking permission.
+
+In accordance with ClinicalTrials.gov terms, the registry should be cited as
+the source: "Source: ClinicalTrials.gov, U.S. National Library of Medicine."
+
+CC0 1.0 Universal summary: https://creativecommons.org/publicdomain/zero/1.0/
+Full legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode

@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "source": "ClinicalTrials.gov API v2 (clinicaltrials.gov)",
+    "query": {
+      "query.intr": "\"artificial intelligence\" OR \"machine learning\""
+    },
+    "fetched_at_utc": "2026-09-15T17:56:58Z",
+    "studies_matched": 4250,
+    "registry_total_studies": 602897,
+    "pipeline": "fetch_all.py (pagination via pageToken, fields-pruned)"
+  },
+  "posting_by_year": {
+    "2005": 1,
+    "2006": 1,
+    "2007": 2,
+    "2008": 1,
+    "2009": 2,
+    "2010": 2,
+    "2011": 4,
+    "2012": 3,
+    "2013": 5,
+    "2014": 4,
+    "2015": 8,
+    "2016": 21,
+    "2017": 20,
+    "2018": 69,
+    "2019": 137,
+    "2020": 246,
+    "2021": 353,
+    "2022": 428,
+    "2023": 487,
+    "2024": 712,
+    "2025": 811,
+    "2026": 933
+  },
+  "status_distribution": {
+    "COMPLETED": 1359,
+    "RECRUITING": 958,
+    "UNKNOWN": 793,
+    "NOT_YET_RECRUITING": 650,
+    "ACTIVE_NOT_RECRUITING": 255,
+    "ENROLLING_BY_INVITATION": 123,
+    "WITHDRAWN": 58,
+    "TERMINATED": 47,
+    "SUSPENDED": 6,
+    "NO_LONGER_AVAILABLE": 1
+  },
+  "study_type_distribution": {
+    "OBSERVATIONAL": 2363,
+    "INTERVENTIONAL": 1886,
+    "EXPANDED_ACCESS": 1
+  },
+  "phase_distribution": {
+    "N/A (observational/other)": 2366,
+    "NA": 1804,
+    "PHASE2": 38,
+    "PHASE4": 20,
+    "PHASE1": 13,
+    "PHASE3": 10,
+    "EARLY_PHASE1": 6
+  },
+  "sponsor_class_distribution": {
+    "OTHER": 3625,
+    "INDUSTRY": 450,
+    "OTHER_GOV": 142,
+    "NETWORK": 14,
+    "FED": 12,
+    "NIH": 7
+  },
+  "top15_sponsors": {
+    "National Taiwan University Hospital": 43,
+    "Mayo Clinic": 41,
+    "Cairo University": 38,
+    "Sun Yat-sen University": 38,
+    "Chinese University of Hong Kong": 33,
+    "The University of Hong Kong": 33,
+    "Assistance Publique - Hôpitaux de Paris": 28,
+    "Second Affiliated Hospital, Zhejiang University, School of Medicine": 27,
+    "Shandong University": 26,
+    "Peking Union Medical College Hospital": 24,
+    "Shanghai Zhongshan Hospital": 23,
+    "Peking University Third Hospital": 23,
+    "Renmin Hospital of Wuhan University": 23,
+    "Fondazione Policlinico Universitario Agostino Gemelli IRCCS": 23,
+    "Sun Yat-Sen Memorial Hospital of Sun Yat-Sen University": 23
+  },
+  "top15_conditions": {
+    "Artificial Intelligence": 181,
+    "Artificial Intelligence (Ai)": 107,
+    "Breast Cancer": 87,
+    "Heart Failure": 77,
+    "Machine Learning": 62,
+    "Coronary Artery Disease": 51,
+    "Lung Cancer": 45,
+    "Anxiety": 44,
+    "Prostate Cancer": 44,
+    "Colorectal Cancer": 42,
+    "Cancer": 41,
+    "Sepsis": 40,
+    "Stroke": 40,
+    "Atrial Fibrillation": 37,
+    "Diabetic Retinopathy": 37
+  },
+  "top12_countries": {
+    "China": 807,
+    "United States": 783,
+    "Italy": 240,
+    "Turkey (Türkiye)": 232,
+    "France": 203,
+    "Spain": 195,
+    "United Kingdom": 181,
+    "Taiwan": 151,
+    "Canada": 110,
+    "Germany": 106,
+    "Egypt": 99,
+    "South Korea": 99
+  },
+  "enrollment": {
+    "n_with_value": 4248,
+    "median": 250,
+    "mean": 30274,
+    "p90": 4882
+  },
+  "interventional_share_pct": 44.4
+}

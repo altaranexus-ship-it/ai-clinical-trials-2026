@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "The State of AI in Clinical Trials — 2026"
+message: >-
+  If you use this dataset or analysis, please cite it using the metadata below.
+type: dataset
+authors:
+  - name: K-Dense Science Lab
+    website: https://kdense.science
+version: 1.0.0
+date-released: "2026-09-15"
+license: MIT
+keywords:
+  - clinical-trials
+  - health-ai
+  - market-research
+  - ClinicalTrials.gov
+abstract: >-
+  A reproducible market analysis of 4,250 ClinicalTrials.gov studies whose
+  intervention descriptions reference artificial intelligence or machine
+  learning (snapshot 2026-09-15). Includes the raw registry extract (JSONL),
+  a flattened CSV, computed statistics, a deterministic zero-dependency Python
+  pipeline, and four publication-grade figures.
