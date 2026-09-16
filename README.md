@@ -116,3 +116,16 @@ gh repo create ai-clinical-trials-2026 --public --source=. --push \
   --homepage https://kdense.science
 # Then: Settings → About → Topics: add the six topics above. Optional: enable CITATION.cff in "Cite this repository".
 ```
+
+## Commercial licenses and analyst tiers
+
+The dataset and code above are free forever (public-domain data, MIT code). Paid analyst tiers sell curation, interpretation, and freshness - slide decks, therapeutic-area heat maps, quarterly refreshes, custom cuts:
+
+| Tier | Price | What you get |
+|---|---|---|
+| Analyst | $490 one-time | 20-slide summary deck, therapeutic-area heat maps, shareable charts pack |
+| Team | $1,900 one-time | Per-vertical deep dives + 60-min briefing + 5 seats |
+| Enterprise | $6,000/yr | Quarterly refresh, custom cuts on request, unlimited seats |
+
+**Storefront and full catalog:** https://altaranexus-ship-it.github.io/kdense-science-lab/
+**To request a tier:** open a discussion at https://github.com/altaranexus-ship-it/kdense-science-lab/discussions - invoice-based procurement, no card rails required.
