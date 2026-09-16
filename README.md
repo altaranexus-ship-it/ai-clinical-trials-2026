@@ -103,29 +103,8 @@ Cite via [`CITATION.cff`](CITATION.cff):
 
 ## Suggested GitHub topics
 
-`clinical-trials` · `health-ai` · `market-research` · `clinicaltrials-gov` · `data-analysis` · `reproducible-research`
+`clinical-trials` - `health-ai` - `market-research` - `clinicaltrials-gov` - `data-analysis` - `reproducible-research`
 
 ---
 
-*Owner publish runbook (do not execute from the lab — owner-gated per channel plan KDE-5):*
-
-```bash
-cd repo
-gh repo create ai-clinical-trials-2026 --public --source=. --push \
-  --description "Reproducible market analysis of 4,250 AI/ML-flagged ClinicalTrials.gov studies (2026)" \
-  --homepage https://kdense.science
-# Then: Settings → About → Topics: add the six topics above. Optional: enable CITATION.cff in "Cite this repository".
-```
-
-## Commercial licenses and analyst tiers
-
-The dataset and code above are free forever (public-domain data, MIT code). Paid analyst tiers sell curation, interpretation, and freshness - slide decks, therapeutic-area heat maps, quarterly refreshes, custom cuts:
-
-| Tier | Price | What you get |
-|---|---|---|
-| Analyst | $490 one-time | 20-slide summary deck, therapeutic-area heat maps, shareable charts pack |
-| Team | $1,900 one-time | Per-vertical deep dives + 60-min briefing + 5 seats |
-| Enterprise | $6,000/yr | Quarterly refresh, custom cuts on request, unlimited seats |
-
-**Storefront and full catalog:** https://altaranexus-ship-it.github.io/kdense-science-lab/
-**To request a tier:** open a discussion at https://github.com/altaranexus-ship-it/kdense-science-lab/discussions - invoice-based procurement, no card rails required.
+*K-Dense Science Lab* - reproducible registry-scale market analysis. Analyst tiers and custom cuts: [storefront](https://altaranexus-ship-it.github.io/kdense-science-lab/).
