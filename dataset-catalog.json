@@ -1,0 +1,17 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "The State of AI in Clinical Trials - 2026",
+  "description": "Registry-scale dataset and market analysis of 4,250 AI/ML-flagged studies from ClinicalTrials.gov API v2 (snapshot 2026-09-15): adoption growth, phase distribution, sponsor landscape, geography. CC0 data, MIT code, reproducible stdlib pipeline.",
+  "url": "https://github.com/altaranexus-ship-it/ai-clinical-trials-2026",
+  "sameAs": ["https://altaranexus-ship-it.github.io/ai-clinical-trials-2026/", "https://altaranexus-ship-it.github.io/kdense-science-lab/"],
+  "keywords": ["clinical trials", "artificial intelligence", "health AI", "market research", "ClinicalTrials.gov"],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "creator": { "@type": "Organization", "name": "K-Dense Science Lab" },
+  "temporalCoverage": "2019/2026",
+  "variableMeasured": ["study_type", "phase", "sponsor_class", "country", "start_year", "condition"],
+  "distribution": [
+    { "@type": "DataDownload", "encodingFormat": "application/jsonl", "contentUrl": "https://github.com/altaranexus-ship-it/ai-clinical-trials-2026/tree/main/data" },
+    { "@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": "https://github.com/altaranexus-ship-it/ai-clinical-trials-2026/tree/main/data" }
+  ]
+}
